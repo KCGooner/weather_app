@@ -1,0 +1,21 @@
+.headerContainer {
+    background-color: black;
+    height: 100px;
+}
+#header {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding: 15px;
+};
+#searchCity {
+    font-size: 30px;
+    margin: auto;
+}
+#searchBtn {
+    background-color: blue;
+    border-radius: 6px;
+}
+i {
+    color: white;
+}
