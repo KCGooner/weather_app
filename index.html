@@ -5,37 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css> <link
+        rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <title>Weather Dashboard</title>
+    <title>Weather-Dashboard</title>
 </head>
 
 <body>
-    <div id="container-fluid">
-        <div class="row headerContainer">
-            <div class="col-12">
-                <h1 id="header">Weather Dashboard</h1>
-            </div>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid dash" id="dashboard">
+            <h1>Weather Dashboard</h1>
         </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-3">
-                <p id="searchCity">Search for a City:</p>
-                <div class="input-group col-mb-3">
-                    <input type="text" class="form-control" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button id="searchBtn" type="button"><i class="fas fa-search"></i></button>
+        <div class="container" id="searchContainer">
+
+            <h2>Search City:</h2>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="city-Name">
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <button type="submit" class="btn-primary btn-search" id="searchBtn">
+                                    <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush" id="list-group">
+
+                        </ul>
+
+
+
                     </div>
                 </div>
+
+                <div class="col-md-9" id="forecast">
+                    <h3>Todays Forecast</h3>
+                    <h4 id="city-Name"></h4>
+                    <h5 id="imgIcon"></h5>
+                    <p>Temp: <span id="temp"></span></p>
+                    <p>Humidity: <span id="humidity"></span></p>
+                    <p>Wind Speed:<span id="wind-speed"></span></p>
+                    <p>UV Index:<span id="UV" class="badge badge-pill"></span></p>
+
+                </div>
+
             </div>
+
         </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9">
+                <h6>5 DAY FORCAST</h6>
+                <div class="row">
+                    <div class="col-sm-2 five" id="dayOne">
+                        <h7></h7>
+                        <p class="img-Icon-5"></p>
+                        <p class="temp-5"></p>
+                        <p class="humidity-5"></p>
+                    </div>
+                    <div class="col-sm-2 five" id="dayTwo">
+                        <h7></h7>
+                        <p class="img-Icon-5"></p>
+                        <p class="temp-5"></p>
+                        <p class="humidity-5"></p>
+                    </div>
+                    <div class="col-sm-2 five" id="dayThree">
+                        <h7></h7>
+                        <p class="img-Icon-5"></p>
+                        <p class="temp-5"></p>
+                        <p class="humidity-5"></p>
+                    </div>
+                    <div class="col-sm-2 five" id="dayFour">
+                        <h7></h7>
+                        <p class="img-Icon-5"></p>
+                        <p class="temp-5"></p>
+                        <p class="humidity-5"></p>
+                    </div>
+                    <div class="col-sm-2 five" id="dayFive">
+                        <h7></h7>
+                        <p class="img-Icon-5"></p>
+                        <p class="temp-5"></p>
+                        <p class="humidity-5"></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="./assets/js/logic.js"></script>
 </body>
 

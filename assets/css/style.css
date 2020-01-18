@@ -1,21 +1,59 @@
-.headerContainer {
-    background-color: black;
-    height: 100px;
+#dashboard {
+  background-color: lightseagreen;
+  color: white;
+  text-align:center;
+  max-height:70px;
+  padding:0px 0px 0px 0px;
 }
-#header {
-    color: white;
-    text-align: center;
-    font-size: 50px;
-    padding: 15px;
-};
-#searchCity {
-    font-size: 30px;
-    margin: auto;
+.container {
+  margin-top:0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  margin-left:0px;
+  width:100%;
 }
-#searchBtn {
-    background-color: blue;
-    border-radius: 6px;
+#forecast {
+  margin-top:10px;
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
 }
-i {
-    color: white;
+.five{
+  border: 1px solid;
+  height:12rem;
+  background-color: lightseagreen;
+  color: white;
+  margin-bottom:12px;
+}
+
+.col {
+  margin-right:15px;
+  margin-top:10px;
+  margin-left:5px;
+}
+
+.card {
+  margin-top:10px;
+  padding: 6px 6px 6px 6px;
+  
+}
+.history-btn {
+  background-color: lightseagreen;
+  color: white;
+}
+.searchTitle {
+  text-align: left;
+}
+footer{
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+  max-width: 1279px;
+  }
+}
+@media (min-width: 576px) {
+  #dashboard {
+    padding-bottom: 0;
+  }
 }
