@@ -63,7 +63,7 @@ $(document).ready(function () {
     })
 
     var renderWeather = function (city) {
-        var baseUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey;
+        var baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey;
         $.ajax({
             url: baseUrl,
             method: "GET",
