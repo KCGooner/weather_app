@@ -30,7 +30,7 @@ $(document).ready(function () {
             cityBtn.text(cityArr[i]);
 
             list.html(cityBtn);
-            $(".list-group").empty();
+            // $(".list-group").empty();
             $('.list-group').prepend(list);
 
         }
@@ -44,9 +44,11 @@ $(document).ready(function () {
 
     $('#searchBtn').on('click', function () {
         var city = $('#city-Name').val();
-
+        console.log(cityArr);
         dataset();
+        console.log(cityArr)
         dataGet();
+        console.log(cityArr)
         renderWeather(city);
         fiveDay();
     });
