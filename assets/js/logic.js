@@ -2,6 +2,10 @@ $(document).ready(function () {
 
     const apiKey = '&apikey=3f7bd57b87da43583336245e74594250';
 
+    // function clearCities() {
+    // window.localStorage.clear(history-btn);
+    // };
+
     var cityArr = JSON.parse(localStorage.getItem('cityArr')) || [];
     var city = "";
     dataGet();
@@ -15,9 +19,10 @@ $(document).ready(function () {
 
     function dataGet() {
 
-        for (var i = 0; i < cityArr.length; i++) {
-            var list = $('<li>');
+        // clearCities();
 
+        for (var i = 0; i < 5; i++) {
+            var list = $('<li>');
 
             list.addClass('list-group-item');
             list.css({ 'padding-right': "0px", 'padding-left': '0px', "margin-top": "4px" });
@@ -30,7 +35,7 @@ $(document).ready(function () {
             cityBtn.text(cityArr[i]);
 
             list.html(cityBtn);
-            // $(".list-group").empty();
+            $(".list-group").empty();
             $('.list-group').prepend(list);
 
         }
@@ -72,7 +77,7 @@ $(document).ready(function () {
 
         }).then(function (response) {
             console.log(response);
-
+            
             var icon = response.weather[0].icon;
             var imgSrc = "https://openweathermap.org/img/wn/" + icon + ".png";
             var img = $("<img>").attr("src", imgSrc);
@@ -90,7 +95,6 @@ $(document).ready(function () {
 
             renderUV(response);
         });
-
     }
 
 
@@ -152,12 +156,10 @@ $(document).ready(function () {
             $("#dayFive .img-Icon-5").html(img38);
             $("#dayFive .temp-5").text("Temp: " + response.list[38].main.temp + "°F");
             $("#dayFive .humidity-5").text("Humidity: " + response.list[38].main.humidity + "%");
-
         });
-
     }
     var renderUV = function (data) {
-        var queryURL = "http://api.openweathermap.org/data/2.5/uvi?" + apiKey + "&lat=" + data.coord.lat + "&lon=" + data.coord.lon;
+        var queryURL = "https://api.openweathermap.org/data/2.5/uvi?" + apiKey + "&lat=" + data.coord.lat + "&lon=" + data.coord.lon;
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -166,11 +168,8 @@ $(document).ready(function () {
             console.log("UV Index :");
             console.log(response);
             $('#UV').text(response.value);
-
         });
-
     }
     // fiveDay();
     // renderUV();
-
 });

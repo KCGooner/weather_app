@@ -17,6 +17,7 @@
   border: solid;
   border-width: 1px;
   border-color: gray;
+  height: auto;
 }
 .five{
   border: 1px solid;
