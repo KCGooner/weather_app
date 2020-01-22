@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         // clearCities();
 
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < cityArr.length; i++) {
             var list = $('<li>');
 
             list.addClass('list-group-item');
