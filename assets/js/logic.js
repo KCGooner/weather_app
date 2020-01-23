@@ -100,7 +100,7 @@ $(document).ready(function () {
 
     var fiveDay = function () {
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + apiKey,
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + apiKey,
             method: "GET",
 
         }).then(function (response) {
