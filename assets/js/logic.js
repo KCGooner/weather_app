@@ -44,7 +44,6 @@ $(document).ready(function () {
     $(document).on('click', '.history-btn', function () {
         var searchCity = $(this).text();
         renderWeather(searchCity);
-        fiveDay(searchCity);
     });
 
     $('#searchBtn').on('click', function () {
@@ -55,7 +54,6 @@ $(document).ready(function () {
         dataGet();
         console.log(cityArr)
         renderWeather(city);
-        fiveDay();
     });
 
 
@@ -108,6 +106,4 @@ $(document).ready(function () {
             $('#UV').text(response.value);
         });
     }
-    // fiveDay();
-    // renderUV();
 });
