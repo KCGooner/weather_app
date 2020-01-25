@@ -44,6 +44,7 @@ $(document).ready(function () {
     $(document).on('click', '.history-btn', function () {
         var searchCity = $(this).text();
         renderWeather(searchCity);
+        fiveDay(searchCity);
     });
 
     $('#searchBtn').on('click', function () {
@@ -54,6 +55,7 @@ $(document).ready(function () {
         dataGet();
         console.log(cityArr)
         renderWeather(city);
+        fiveDay();
     });
 
 
@@ -75,7 +77,7 @@ $(document).ready(function () {
 
         }).then(function (response) {
             console.log(response);
-            
+
             var icon = response.weather[0].icon;
             var imgSrc = "https://openweathermap.org/img/wn/" + icon + ".png";
             var img = $("<img>").attr("src", imgSrc);
@@ -94,6 +96,68 @@ $(document).ready(function () {
             renderUV(response);
         });
     }
+    var fiveDay = function () {
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + apiKey,
+            method: "GET",
+
+        }).then(function (response) {
+            console.log(response);
+            //day 1
+            var code6 = response.list[6].weather[0].icon;
+            var imgSrc6 = "https://openweathermap.org/img/wn/" + code6 + ".png";
+            var img6 = $("<img>").attr("src", imgSrc6);
+            //day 2
+            var code14 = response.list[14].weather[0].icon;
+            var imgSrc14 = "https://openweathermap.org/img/wn/" + code14 + ".png";
+            var img14 = $("<img>").attr("src", imgSrc14);
+            //day 3
+            var code22 = response.list[22].weather[0].icon;
+            var imgSrc22 = "https://openweathermap.org/img/wn/" + code22 + ".png";
+            var img22 = $("<img>").attr("src", imgSrc22);
+            //day 4
+            var code30 = response.list[30].weather[0].icon;
+            var imgSrc30 = "https://openweathermap.org/img/wn/" + code30 + ".png";
+            var img30 = $("<img>").attr("src", imgSrc30);
+            //day 5
+            var code38 = response.list[38].weather[0].icon;
+            var imgSrc38 = "https://openweathermap.org/img/wn/" + code38 + ".png";
+
+            var img38 = $("<img>").attr("src", imgSrc38);
+
+            // day 1 
+            $("#dayOne h7").text(moment().add(1, "days").format("l"));
+            $("#dayOne .img-Icon-5").html(img6);
+            $("#dayOne .temp-5").text("Temp: " + response.list[6].main.temp + "°F");
+            $("#dayOne .humidity-5").text("Humidity: " + response.list[6].main.humidity + "%");
+
+            // day two
+            $("#dayTwo h7").text(moment().add(2, "days").format("l"));
+            $("#dayTwo .img-Icon-5").html(img14);
+            $("#dayTwo .temp-5").text("Temp: " + response.list[14].main.temp + "°F");
+            $("#dayTwo .humidity-5").text("Humidity: " + response.list[14].main.humidity + "%");
+
+            //day 3 
+            $("#dayThree h7").text(moment().add(3, "days").format("l"));
+            $("#dayThree .img-Icon-5").html(img22);
+            $("#dayThree .temp-5").text("Temp: " + response.list[22].main.temp + "°F");
+            $("#dayThree .humidity-5").text("Humidity: " + response.list[22].main.humidity + "%");
+
+            // day 4 
+            $("#dayFour h7").text(moment().add(4, "days").format("l"));
+            $("#dayFour .img-Icon-5").html(img30);
+            $("#dayFour .temp-5").text("Temp: " + response.list[30].main.temp + "°F");
+            $("#dayFour .humidity-5").text("Humidity: " + response.list[30].main.humidity + "%");
+
+            //Day 5 
+            $("#dayFive h7").text(moment().add(5, "days").format("l"));
+            $("#dayFive .img-Icon-5").html(img38);
+            $("#dayFive .temp-5").text("Temp: " + response.list[38].main.temp + "°F");
+            $("#dayFive .humidity-5").text("Humidity: " + response.list[38].main.humidity + "%");
+        });
+    }
+
+
     var renderUV = function (data) {
         var queryURL = "https://api.openweathermap.org/data/2.5/uvi?" + apiKey + "&lat=" + data.coord.lat + "&lon=" + data.coord.lon;
         $.ajax({
@@ -106,4 +170,5 @@ $(document).ready(function () {
             $('#UV').text(response.value);
         });
     }
+    
 });
